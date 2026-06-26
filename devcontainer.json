@@ -1,0 +1,26 @@
+{
+  "name": "KRSS Azure Pipeline Dev",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14-bookworm",
+  
+  // Use official features to safely inject tools into the workspace
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/terraform:1": {},
+    "ghcr.io/devcontainers/features/powershell:2": {}
+  },
+
+  // Automatically install extensions inside the container environment
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-azuretools.vscode-azurecontainerapps"
+      ]
+    }
+  },
+
+  // Keeps files cleanly mapping directly back to your workspace folder
+  "remoteUser": "vscode"
+}
