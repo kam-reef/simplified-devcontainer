@@ -29,8 +29,12 @@ Copy the example files devcontainer.json and Dockerfile into the .devcontainer f
 3. Press `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (Mac) to open the Command Palette.
 4. Type **`Dev Containers: Reopen in Container`** and hit Enter.
 
-At this point in the steps, VScode may prompt you to build the container.
+At this point in the steps, VScode may prompt you to build the container. You can read more about building devcontainers [here](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_add-configuration-files-to-a-repository).
 
 ## Maintenance
 
 Editing the devcontainer.json file will trigger a container rebuild. When the base container image is updated by the provider, press `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (Mac) to open the Command Palette and manually trigger a rebuild.
+
+There are many base container images available for practically any need, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/en-us/catalog?search=devcontainer) for more information.
+
+Tip: You can select a specific base container image [build tag](https://mcr.microsoft.com/v2/devcontainers/python/tags/list) to utilize a specific version in your devcontainer.
