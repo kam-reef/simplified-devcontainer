@@ -1,0 +1,23 @@
+{
+  "name": "KRSS Azure Pipeline Dev",
+  "build": { "dockerfile": "Dockerfile" },
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/terraform:1": {},
+    "ghcr.io/devcontainers/features/powershell:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-azuretools.vscode-azurecontainerapps",
+        "ms-azuretools.vscode-azureresourcegroups"
+      ]
+    }
+  },
+  "postCreateCommand": "[ -f requirements.txt ] && pip install --user -r requirements.txt || echo 'No requirements.txt found, skipping...'"
+,
+  "remoteUser": "vscode"
+}

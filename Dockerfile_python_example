@@ -1,0 +1,9 @@
+# Pinning specific version for python apps in containers.
+FROM mcr.microsoft.com/devcontainers/python:3.14-bookworm
+
+# Install troubleshooting & infrastructure network utilities
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bat graphviz ripgrep dnsutils iputils-ping net-tools inetutils-traceroute tcpdump iproute2 \
+    && rm -rf /var/lib/apt/lists/*
+
+CMD ["bash"]
