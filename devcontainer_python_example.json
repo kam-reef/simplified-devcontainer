@@ -17,7 +17,8 @@
       ]
     }
   },
-  "postCreateCommand": "[ -f requirements.txt ] && pip install --user -r requirements.txt || echo 'No requirements.txt found, skipping...'"
-,
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "[ -f requirements.txt ] && pip install --user -r requirements.txt || echo 'No requirements.txt found, skipping...'",
   "remoteUser": "vscode"
 }

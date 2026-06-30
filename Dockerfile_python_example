@@ -1,6 +1,12 @@
 # Pinning specific version for python apps in containers.
 FROM mcr.microsoft.com/devcontainers/python:3.14-bookworm
 
+# Python environment settings for real-time logging
+ENV PYTHONUNBUFFERED=1
+
+# Upgrade pip
+RUN pip install --no-cache-dir --upgrade pip
+
 # Install troubleshooting & infrastructure network utilities
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bat graphviz ripgrep dnsutils iputils-ping net-tools inetutils-traceroute tcpdump iproute2 \

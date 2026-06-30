@@ -1,11 +1,11 @@
 {
   "name": "KRSS Azure Pipeline Dev",
-  "image": "mcr.microsoft.com/devcontainers/python:3.14-bookworm",
+  "build": { "dockerfile": "Dockerfile" },
   
   // Use official features to safely inject tools into the workspace
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {},
-    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/git:1.3.6": {},
     "ghcr.io/devcontainers/features/python:1": {},
     "ghcr.io/devcontainers/features/terraform:1": {},
     "ghcr.io/devcontainers/features/powershell:2": {}
@@ -16,11 +16,13 @@
     "vscode": {
       "extensions": [
         "ms-azuretools.vscode-docker",
-        "ms-azuretools.vscode-azurecontainerapps"
+        "ms-azuretools.vscode-azurecontainerapps",
+        "ms-azuretools.vscode-azureresourcegroups"
       ]
     }
   },
-
-  // Keeps files cleanly mapping directly back to your workspace folder
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "[ -f requirements.txt ] && pip install --user -r requirements.txt || echo 'No requirements.txt found, skipping...'",
   "remoteUser": "vscode"
 }

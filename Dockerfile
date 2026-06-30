@@ -1,14 +1,22 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0-bookworm-slim
 
-ARG TARGETARCH
-ENV TZ=Etc/UTC
-
-# Install lightweight troubleshooting & network utilities
+# Install Python and core development tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 python3-pip python3-venv \
     bat graphviz ripgrep dnsutils iputils-ping net-tools inetutils-traceroute tcpdump iproute2 \
+    awscli google-cloud-cli \
     && rm -rf /var/lib/apt/lists/*
 
-# EXAMPLE kubectx / kubens
+# Python environment settings for real-time logging
+ENV PYTHONUNBUFFERED=1
+
+# Upgrade pip
+RUN pip install --no-cache-dir --upgrade pip --break-system-packages
+
+# Set working directory for admin tasks
+WORKDIR /workspace
+
+CMD ["bash"]
 #RUN git clone --depth 1 https://github.com/ahmetb/kubectx.git /opt/kubectx && \
 #    cp /opt/kubectx/kubectx /usr/local/bin/ && \
 #   cp /opt/kubectx/kubens /usr/local/bin/ && \
