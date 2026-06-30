@@ -17,6 +17,20 @@ I prioritized a **hybrid security model** that splits ownership: leveraging the 
 
 ## Setup Instructions
 
+### Platform Prerequisites
+Before using these DevContainers, ensure your environment meets these requirements:
+
+#### Windows 11
+1. **[WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install):** Must be installed and running a supported Linux distribution (e.g., Ubuntu).
+2. **[Docker Desktop](https://docs.docker.com/desktop/install/windows-install/):** Ensure WSL 2 integration is enabled in the Docker Desktop settings.
+3. **[VS Code](https://code.visualstudio.com/):** Installed on Windows, with the **[Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)** extension installed.
+
+#### macOS
+1. **[Docker Desktop](https://docs.docker.com/desktop/install/mac-install/):** Ensure Docker is running.
+2. **[VS Code](https://code.visualstudio.com/):** Installed on macOS, with the **[Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)** extension installed.
+
+> **Quick Verification:** Before initializing, run `docker --version`. If it fails, the DevContainer engine cannot build your image.
+
 ### Step 1: Initialize Project Directory
 ```bash
 mkdir -p ~/projects/code/.devcontainer
